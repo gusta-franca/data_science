@@ -1,4 +1,4 @@
-name: base
+name: pandas_viz
 channels:
   - defaults
 dependencies:
