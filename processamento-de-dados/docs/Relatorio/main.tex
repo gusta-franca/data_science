@@ -1,0 +1,316 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,   	        % para impressão em verso e anverso use twoside. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazilian,				% o último idioma é o principal do documento
+	]{pacotes/abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{1.5}
+% ---
+
+% ---
+% Pacotes adicionais, usados no anexo do modelo de folha de identificação
+% ---
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+% ---
+	
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{pacotes/abntex2cite}	% Citações padrão ABNT
+\usepackage{comment}
+
+% Estilização da linguagem PLY
+\usepackage{listings}
+\usepackage{xcolor}
+
+% VS Code Light+ colors
+\definecolor{vscKeyword}{HTML}{0000FF}
+\definecolor{vscComment}{HTML}{008000}
+\definecolor{vscString}{HTML}{A31515}
+\definecolor{vscFunction}{HTML}{795E26}
+\definecolor{vscNumbers}{HTML}{808080}
+\definecolor{vscBackground}{HTML}{FFFFFF}
+
+\lstdefinestyle{ply}{
+    aboveskip=0.8\baselineskip,
+    backgroundcolor=\color{vscBackground},
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{vscNumbers},
+    numbersep=8pt,
+    breaklines=true,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    frame=single,
+    rulecolor=\color{black!20},
+    keywordstyle=\color{vscKeyword}\bfseries,
+    commentstyle=\color{vscComment}\itshape,
+    stringstyle=\color{vscString},
+    captionpos=b
+}
+
+\lstset{style=ply}
+
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Atividade: Relatório com as Expressões Regulares para a Análise Léxica do seu Projeto}
+\autor{Maria Eduarda Bambini}
+\local{Campo Mourão}
+\data{Setembro / 2026}
+\instituicao{%
+  Implementação de Linguagens de Programação - OPT011
+  \par
+  Prof. Rogério Aparecido Gonçalves}
+\tipotrabalho{Relatório técnico}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% Omite a numeração de capítulos
+\renewcommand*\thesection{\arabic{section}}
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+\imprimirfolhaderosto
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+% ELEMENTOS TEXTUAIS
+\textual
+
+\makeatletter
+\renewcommand{\chapter}{\@gobbletwo}
+\makeatother
+
+\section{Introdução}
+\label{sec:introducao}
+    
+Para realizar o mapeamento de expressões regulares para a identificação das classes de \textit{tokens} da linguagem TPP, foram realizadas algumas mudanças na tabela original \cite{regex-tokens} proposta como base. Verifique na tabela \ref{tab:tokens_regex} a escolha final.
+
+\begin{longtable}{|>{\centering\arraybackslash}p{6cm}|>{\centering\arraybackslash}p{6cm}|}
+\caption{Tokens e suas respectivas expressões regulares.}
+\label{tab:tokens_regex} \\
+\hline
+\rowcolor{gray!20}
+Token & Expressão Regular \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{gray!20}
+Token & Expressão Regular \\
+\hline
+\endhead
+
+MAIS & \verb|r'\+'| \\
+\hline
+MENOS & \verb|r'-'| \\
+\hline
+VEZES & \verb|r'\*'| \\
+\hline
+DIVIDE & \verb|r'/'| \\
+\hline
+DOIS\_PONTOS & \verb|r':'| \\
+\hline
+VIRGULA & \verb|r','| \\
+\hline
+MENOR & \verb|r'<'| \\
+\hline
+MAIOR & \verb|r'>'| \\
+\hline
+IGUAL & \verb|r'='| \\
+\hline
+DIFERENTE & \verb|r'<>'| \\
+\hline
+MENOR\_IGUAL & \texttt{r'<='} \\
+\hline
+MAIOR\_IGUAL & \texttt{r'>='} \\
+\hline
+E & \verb|r'&&'| \\
+\hline
+OU & \texttt{r'||'} \\
+\hline
+NAO & \verb|r'!'| \\
+\hline
+ABRE\_PARANTESE & \texttt{r'\textbackslash('} \\
+\hline
+FECHA\_PARENTESE & \texttt{r'\textbackslash)'} \\
+\hline
+ABRE\_COLCHETE & \texttt{r'\textbackslash['} \\
+\hline
+FECHA\_COLCHETE & \texttt{r'\textbackslash]'} \\
+\hline
+SE & \verb|r'se'| \\
+\hline
+ENTAO & \verb|r'então'| \\
+\hline
+FIM & \verb|r'fim'| \\
+\hline
+REPITA & \verb|r'repita'| \\
+\hline
+ATE & \verb|r'até'| \\
+\hline
+ATRIBUICAO & \verb|r':='| \\
+\hline
+LEIA & \verb|r'leia'| \\
+\hline
+ESCREVA & \verb|r'escreva'| \\
+\hline
+RETORNA & \verb|r'retorna'| \\
+\hline
+INTEIRO & \verb|r'inteiro'| \\
+\hline
+FLUTUANTE & \verb|r'flutuante'| \\
+\hline
+NUM\_INTEIRO & \texttt{r'\textbackslash d+'} \\
+\hline
+NUM\_PONTO\_FLUTUANTE & \texttt{r'\textbackslash d*\textbackslash.\textbackslash d+'} \\
+\hline
+NUM\_NOTACAO\_CIENTIFICA & \texttt{r'\textbackslash d*\textbackslash.?\textbackslash d+[eE][-+]?\textbackslash d+'} \\
+\hline
+
+\end{longtable}
+
+\section{Procedimentos}
+\label{(sec:procedimentos}
+
+Note que apenas as expressões regulares referentes ao número de ponto flutuante e número em notação científica sofreram alterações. A expressão regular relativa ao número de ponto flutuante estava definida como \texttt{r'\textbackslash d+\textbackslash.?\textbackslash d*'}, porém isso permite que não exista o símbolo ``.'' separador de parte fracionária do número e também que não exista nenhum número após o símbolo separador (``.''). Além disso, a expressão exige que exista um número antes da parte fracionária. 
+
+A expressão foi alterada para inverter todos esses comportamentos citados, ou seja, não exige que haja um dígito antes da parte fracionária, visto que, por exemplo, o número de ponto flutuante .89 será convertido para 0.89; exige que exista o símbolo ``.'' separador da parte fracionária do número e exige que exista um número após esse símbolo, pois o número 89., por exemplo, estaria incorreto. Dessa forma, a expressão regular após os ajustes é a seguinte: \texttt{r'\textbackslash d*\textbackslash.\textbackslash d+'}, note que o primeiro metacaratere ``d'' agora pode ter zero ou múltiplas correspondências, o símbolo ``.'' agora é obrigatório, e o metacaractere ``d'' referente à parte fracionária precisa ter pelo menos uma correspondência.
+
+A expressão regular referente ao número em notação científica também sofreu modificações. A parte da expressão que diz respeito à mantissa foi alterada de modo a reconhecer números inteiros ou de ponto flutuante, então sofreu alterações similares à expressão regular relacionada ao número de ponto flutuante. Além disso, a parte da expressão regular referente à ordem de grandeza do número, agora reconhece tanto ``e'' quanto ``E'' para indicar o expoente da ordem de grandeza. Essa é a expressão regular após esses ajustes: \texttt{r'\textbackslash d*\textbackslash.?\textbackslash d+[eE][-+]?\textbackslash d+'}, que também pode ser verificado na tabela \ref{tab:tokens_regex}.
+
+% ELEMENTOS PÓS-TEXTUAIS
+\postextual
+% Referências bibliográficas
+\renewcommand{\bibsection}{%
+\section{\bibname}
+\bibmark
+%\ifnobibintoc\else
+%\phantomsection
+%\addcontentsline{toc}{section}{\bibname}
+%\fi
+\prebibhook}
+
+\bibliography{references}
+\end{document}
