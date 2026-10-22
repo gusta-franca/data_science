@@ -4,7 +4,7 @@ bibtex main
 pdflatex main.tex
 pdflatex main.tex   
 
-Requirements:
+# Requirements:
 * babel-portuges
 * textlive-hyphen-portuguese
 * texlive-multirow
