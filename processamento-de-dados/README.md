@@ -14,6 +14,12 @@ Crie um ambiente virtual:
 python3 -m venv .venv
 ```
 
+Ative o ambiente:
+
+```bash
+source .venv/bin/activate
+```
+
 Instale as dependências do projeto:
 
 ```bash
