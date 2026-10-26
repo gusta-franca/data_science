@@ -1,6 +1,6 @@
 # Atividade Processamento de Dados
 
-> Alunos: Gustavo Martins França e Maria Eduarda Bambini
+Estudantes: Gustavo Martins França - 2650800 e Maria Eduarda Bambini - 2650479
 
 ## Estrutura do projeto
 
