@@ -1,2 +1,2 @@
 # O Github bloqueia o envio de arquivos maiores que 100 MB. Algumas das base de dados utilizadas ultrapassam esse limite.
-data/raw
+data/
