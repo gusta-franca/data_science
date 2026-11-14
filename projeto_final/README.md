@@ -1,0 +1,3 @@
+### Instalação
+
+``make setup``
