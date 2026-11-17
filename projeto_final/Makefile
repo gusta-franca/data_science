@@ -13,6 +13,10 @@ setup: $(VENV)/bin/activate
 	$(PYTHON) -m ipykernel install --user \
 		--name $(KERNEL_NAME) \
 		--display-name "$(KERNEL_DISPLAY)"
+	@mkdir data
+	@mkdir data/interim
+	@mkdir data/processed
+	@mkdir data/raw
 
 $(VENV)/bin/activate:
 	python3 -m venv $(VENV)
