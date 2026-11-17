@@ -36,7 +36,7 @@ Há um registro por dia, totalizando 1826 registros. Na tabela abaixo, estão li
 |---|---|---|
 | Chave | `data` | Índice |
 | Calendário | `feriado_nacional`, `ponto_facultativo`, `frac_estados_feriado`, `dia_semana`, `mes` | Variáveis preditoras |
-| Observações |  | Análise |
+| Observações | `n_perturbacoes`, `mw_interrompido`, `chuva_media`, `chuva_max`, `temp_max_media`, `temp_min_media`, `rajada_max` | Análise |
 
 ## Limitações conhecidas
 
